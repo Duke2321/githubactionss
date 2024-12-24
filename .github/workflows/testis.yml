@@ -20,3 +20,20 @@ jobs:
       - name: Run tests
         run: npm test
         working-directory: projects
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+        working-directory: projects
+      - name: Build project
+        run: npm run build
+        working-directory: projects
+      - name: deploying
+        run: echo "this file is getting deployed"
