@@ -1,0 +1,10 @@
+name: Best ass in the world
+on: workflow_dispatch
+jobs:
+    test:
+    runs-on: ubuntu-latest
+    steps:
+        - name: random girls asses are the best
+        run: echo "i m the butt guy"
+        - name: ass are more sexier than boobs
+        run: echo "we love the asses"
