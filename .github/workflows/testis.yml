@@ -1,13 +1,12 @@
 name: Test project
+
 on: [push, workflow_dispatch]
-    branches:
-      - main
-      - master
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Get Code
+      - name: Checkout Code
         uses: actions/checkout@v3
       - name: Install NodeJS
         uses: actions/setup-node@v3
@@ -19,11 +18,12 @@ jobs:
       - name: Run tests
         run: npm test
         working-directory: projects
+
   deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: Get Code
+      - name: Checkout Code
         uses: actions/checkout@v3
       - name: Install NodeJS
         uses: actions/setup-node@v3
@@ -35,5 +35,5 @@ jobs:
       - name: Build project
         run: npm run build
         working-directory: projects
-      - name: deploying
-        run: echo "this file is getting deployed"
+      - name: Deploying
+        run: echo "This file is getting deployed"
